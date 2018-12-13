@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{fragment/main-layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Form</title>
+</head>
+<body>
+
+    <div layout:fragment="content" class="container myJumbo">
+        <div class="alert alert-danger" th:if="${exist}">
+            <p class="text text-center">
+                User with this email already Exist.
+            </p>
+        </div>
+        <form th:action="@{/register}" th:object="${user}" method="post">
+
+            <div class="form-group">
+                <label for="email" class="form-control-label">Email</label>
+                <input type="text" class="form-control" th:field="*{email}" id="email">
+                <div class="text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-control-label">Password</label>
+                <input type="password" class="form-control" th:field="*{password}" id="password">
+                <div class="text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="name" class="form-control-label">Name</label>
+                <input type="text" class="form-control" th:field="*{name}" id="name">
+                <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            </div>
+
+            <input type="submit" value="Submit" class="btn btn-primary">
+
+        </form>
+    </div>
+
+</body>
+</html>

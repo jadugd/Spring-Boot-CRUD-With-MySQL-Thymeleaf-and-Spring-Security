@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{fragment/main-layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+    <div layout:fragment="content" class="container myJumbo">
+        <div class="jumbotron">
+            <h1 class="text text-center">Something's wrong</h1>
+            <h3 th:text="${status}" class="text text-center text-danger"></h3>
+            <h3 th:text="${message}" class="text text-center"></h3>
+            <div class="text text-center">
+                Please Contact admin or go back to <a href="/">HOME</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
